@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>404 // SIGNAL LOST</title>
+    <style>
+      :root {
+        --stranger-red: #e50914;
+        --dark-bg: #080808;
+        --text-color: #e0e0e0;
+        --particle-color: rgba(200, 200, 200, 0.08);
+        --glow-color: rgba(229, 9, 20, 0.6);
+        --glitch-alt-color: #ff4d4d;
+        --glitch-shadow-color: rgba(0, 0, 0, 0.7);
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--dark-bg);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden;
+        position: relative;
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.01),
+          rgba(255, 255, 255, 0.01) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+          circle,
+          var(--particle-color) 1px,
+          transparent 1px
+        );
+        background-size: 60px 60px;
+        opacity: 0.4;
+        animation: particles-float 80s linear infinite;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      @keyframes particles-float {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: -1200px 1200px;
+        }
+      }
+
+      .container {
+        max-width: 700px;
+        width: 90%;
+        text-align: center;
+        padding: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .glitch-wrapper {
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      .glitch {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 15vw;
+        font-weight: bold;
+        color: var(--stranger-red);
+        position: relative;
+        margin: 0 auto;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color),
+          0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
+        animation: base-flicker 4s infinite linear alternate;
+      }
+
+      @keyframes base-flicker {
+        0%,
+        100% {
+          opacity: 1;
+          transform: skew(0);
+        }
+        50% {
+          opacity: 0.95;
+          transform: skew(-0.5deg);
+        }
+        75% {
+          opacity: 1;
+          transform: skew(0.5deg);
+        }
+      }
+
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--dark-bg);
+        overflow: hidden;
+      }
+
+      .glitch::before {
+        left: 2px;
+        text-shadow: -1px 0 var(--glitch-shadow-color);
+        color: var(--glitch-alt-color);
+        clip-path: inset(50% 0 51% 0);
+        animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+      }
+
+      .glitch::after {
+        left: -2px;
+        text-shadow: 2px 0 var(--glow-color);
+        color: var(--stranger-red);
+        clip-path: inset(49% 0 50% 0);
+        animation: glitch-anim-2 3.5s infinite linear alternate-reverse;
+      }
+
+      @keyframes glitch-anim-1 {
+        0% {
+          clip-path: inset(25% 0 76% 0);
+          transform: translate(-1px, 1px);
+        }
+        10% {
+          clip-path: inset(8% 0 60% 0);
+          transform: translate(1px, -1px);
+        }
+        20% {
+          clip-path: inset(91% 0 1% 0);
+          transform: translate(0, 0);
+        }
+        30% {
+          clip-path: inset(63% 0 1% 0);
+          transform: translate(1px, 1px);
+        }
+        40% {
+          clip-path: inset(38% 0 34% 0);
+          transform: translate(-1px, 0);
+        }
+        50% {
+          clip-path: inset(22% 0 66% 0);
+          transform: translate(0, 0);
+        }
+        60% {
+          clip-path: inset(88% 0 10% 0);
+          transform: translate(1px, -1px);
+        }
+        70% {
+          clip-path: inset(69% 0 18% 0);
+          transform: translate(-1px, 1px);
+        }
+        80% {
+          clip-path: inset(40% 0 37% 0);
+          transform: translate(0, 0);
+        }
+        90% {
+          clip-path: inset(10% 0 9% 0);
+          transform: translate(-1px, -1px);
+        }
+        100% {
+          clip-path: inset(85% 0 9% 0);
+          transform: translate(1px, 0);
+        }
+      }
+
+      @keyframes glitch-anim-2 {
+        0% {
+          clip-path: inset(78% 0 10% 0);
+          transform: translate(1px, -1px);
+        }
+        10% {
+          clip-path: inset(59% 0 12% 0);
+          transform: translate(-1px, 1px);
+        }
+        20% {
+          clip-path: inset(8% 0 43% 0);
+          transform: translate(0, 0);
+        }
+        30% {
+          clip-path: inset(16% 0 74% 0);
+          transform: translate(-1px, -1px);
+        }
+        40% {
+          clip-path: inset(91% 0 1% 0);
+          transform: translate(1px, 0);
+        }
+        50% {
+          clip-path: inset(48% 0 49% 0);
+          transform: translate(0, 0);
+        }
+        60% {
+          clip-path: inset(78% 0 1% 0);
+          transform: translate(-1px, 1px);
+        }
+        70% {
+          clip-path: inset(31% 0 34% 0);
+          transform: translate(1px, 1px);
+        }
+        80% {
+          clip-path: inset(62% 0 25% 0);
+          transform: translate(0, 0);
+        }
+        90% {
+          clip-path: inset(4% 0 84% 0);
+          transform: translate(1px, -1px);
+        }
+        100% {
+          clip-path: inset(85% 0 9% 0);
+          transform: translate(-1px, 0);
+        }
+      }
+
+      h2 {
+        font-size: 1.6em;
+        margin: 20px 0 15px;
+        color: var(--text-color);
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 3px rgba(224, 224, 224, 0.1);
+      }
+
+      p {
+        color: var(--text-color);
+        font-size: 1em;
+        line-height: 1.7;
+        margin: 0 10px 30px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.9;
+      }
+
+      .home-link {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 1px solid rgba(224, 224, 224, 0.4);
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 3px;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          border-color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .home-link:hover,
+      .home-link:focus {
+        background-color: rgba(229, 9, 20, 0.15);
+        color: #fff;
+        border-color: rgba(229, 9, 20, 0.8);
+        outline: none;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .glitch {
+          font-size: 20vw;
+        }
+        h2 {
+          font-size: 1.4em;
+        }
+        p {
+          font-size: 0.95em;
+        }
+      }
+      @media (max-width: 480px) {
+        .glitch {
+          font-size: 28vw;
+          letter-spacing: -0.04em;
+        }
+        h2 {
+          font-size: 1.2em;
+          letter-spacing: 1px;
+        }
+        p {
+          font-size: 0.9em;
+        }
+        .container {
+          padding: 20px 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="glitch-wrapper">
+        <h1 class="glitch" data-text="404">404</h1>
+      </div>
+      <h2>// TRANSMISSION CORRUPTED //</h2>
+      <p>
+        Static... interference... you've drifted into a weak spot between
+        dimensions. This frequency is unstable. Return to the designated reality
+        path before the connection degrades. Hawkins awaits.
+      </p>
+      <a href="/" class="home-link">≪ Re-tune Frequency</a>
+    </div>
+  </body>
+</html>
